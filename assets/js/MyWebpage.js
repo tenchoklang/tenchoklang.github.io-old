@@ -63,17 +63,17 @@ $('.square').mouseover(function(e) {
 
 
 
-var targetPos = $("#nav").offset().top;//capture the exact position of the #nav
+var targetPos = $(".topnav").offset().top;//capture the exact position of the #nav
 //rather then hardcoding a value, works with all screen sizes also
 console.log(targetPos);
 
 $(window).resize(function(){
-	 targetPos = $("#nav").offset().top;
+	 targetPos = $(".topnav").offset().top;
 });
 
 
-$("#nav").wrap("<div class='nav-placeHolder'></div>");
-$(".nav-placeHolder").height($("#nav").outerHeight());//place holder #nav, so when
+$(".topnav").wrap("<div class='nav-placeHolder'></div>");
+$(".nav-placeHolder").height($(".topnav").outerHeight());//place holder #nav, so when
 //the nav goes out of the flow of the page the transition will be smooth
 
 $(window).scroll(function(){
@@ -81,9 +81,9 @@ $(window).scroll(function(){
 
 
   if(scrollPos>targetPos){
-    $("#nav").addClass("fixed-nav");//removes the content from the flow of the page
+    $(".topnav").addClass("fixed-nav");//removes the content from the flow of the page
   }else{
-    $("#nav").removeClass("fixed-nav");
+    $(".topnav").removeClass("fixed-nav");
   }
 
 
@@ -148,3 +148,16 @@ $( window ).on( "load", function() {
 		}
 	}
 });
+
+
+function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
+
+
+
